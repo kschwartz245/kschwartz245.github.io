@@ -3,25 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My GitHub Page</title>
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 0 20px;
-            color: #333;
-        }
-        h1 {
-            color: #0366d6;
-        }
-    </style>
+    <title>My Personal Portfolio</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <h1>Welcome to My GitHub Page!</h1>
-    <p>This is a basic HTML template running live on GitHub Pages.</p>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">MyPortfolio</div>
+        <ul class="nav-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="hero" class="hero-section">
+        <div class="hero-content">
+            <h1>Hi, I'm <span class="highlight">Your Name</span></h1>
+            <p>A passionate Web Developer & Designer creating clean, modern experiences.</p>
+            <a href="#projects" class="btn">View My Work</a>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <h2>About Me</h2>
+        <p>Hello! I specialize in building responsive, user-friendly websites. I enjoy solving complex problems and turning ideas into clean code.</p>
+        <div class="skills-container">
+            <span class="skill-badge">HTML5</span>
+            <span class="skill-badge">CSS3</span>
+            <span class="skill-badge">JavaScript</span>
+            <span class="skill-badge">Responsive Design</span>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section">
+        <h2>My Projects</h2>
+        <div class="projects-grid">
+            <!-- Project Card 1 -->
+            <div class="project-card">
+                <h3>Project One</h3>
+                <p>A brief description of this cool project and the tech stack used to build it.</p>
+                <a href="#" class="project-link">View Project →</a>
+            </div>
+            <!-- Project Card 2 -->
+            <div class="project-card">
+                <h3>Project Two</h3>
+                <p>A brief description of this cool project and the tech stack used to build it.</p>
+                <a href="#" class="project-link">View Project →</a>
+            </div>
+            <!-- Project Card 3 -->
+            <div class="project-card">
+                <h3>Project Three</h3>
+                <p>A brief description of this cool project and the tech stack used to build it.</p>
+                <a href="#" class="project-link">View Project →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <h2>Get In Touch</h2>
+        <p>Have an exciting project or opportunity you want to discuss? Let's connect!</p>
+        <a href="mailto:your.email@example.com" class="btn">Email Me</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 Your Name. All rights reserved.</p>
+    </footer>
 
 </body>
 </html>
