@@ -1,149 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+<div class="layout">
+  <aside id="left-panel">
     <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <div id="default-content">
+      <h1>Keegan</h1>
+      <p>Developer • Designer • Problem Solver</p>
+    </div>
 
-    <!-- Sticky Navigation Bar -->
-    <nav class="navbar">
-        <div class="logo">DeveloperPortfolio</div>
-        <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#completed-projects">Completed Work</a></li>
-            <li><a href="#incomplete-projects">In-Progress</a></li>
-            <li><a href="#quotes">Testimonials</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+    <div id="hover-content" class="hidden">
+      <!-- This will be filled dynamically -->
+    </div>
+  </aside>
 
-    <!-- Main Container utilizing full screen width -->
-    <main class="main-container">
+  <main id="right-panel">
+    <div class="item" data-details="Details about Project One">
+      Project One
+    </div>
 
-        <!-- About Me Section -->
-        <section id="about" class="section">
-            <div class="section-content">
-                <h1>Hi, I'm <span class="highlight">Your Name</span></h1>
-                <p class="lead">A software developer building efficient, clean, and functional applications.</p>
-                <p>Welcome to my space. I focus on structural integrity in code, clean logic, and turning complex problems into elegant systems.</p>
-            </div>
-        </section>
+    <div class="item" data-details="Details about Project Two">
+      Project Two
+    </div>
 
-        <!-- Skills and Traits Section -->
-        <section id="skills" class="section border-top">
-            <div class="section-content">
-                <h2>Skills & Traits</h2>
-                <div class="skills-grid">
-                    <div class="skill-card">
-                        <h3>Languages</h3>
-                        <p>Java, C#, JavaScript, HTML5, CSS3</p>
-                    </div>
-                    <div class="skill-card">
-                        <h3>Concepts</h3>
-                        <p>Object-Oriented Programming (OOP), Software Architecture, Design Patterns</p>
-                    </div>
-                    <div class="skill-card">
-                        <h3>Core Traits</h3>
-                        <p>Analytical Thinking, Problem Solving, Focused Execution, Continuous Learner</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Completed Projects Section -->
-        <section id="completed-projects" class="section border-top">
-            <div class="section-content">
-                <h2>Completed Projects</h2>
-                <div class="projects-columns">
-                    <!-- Project 1 -->
-                    <div class="project-box status-completed">
-                        <div class="project-header">
-                            <h3>Project Alpha</h3>
-                            <span class="badge">Done</span>
-                        </div>
-                        <p>A fully implemented desktop application focusing on optimized data structures and Object-Oriented principles.</p>
-                        <div class="project-tech"><span>Java</span> <span>OOP</span></div>
-                    </div>
-                    <!-- Project 2 -->
-                    <div class="project-box status-completed">
-                        <div class="project-header">
-                            <h3>Project Beta</h3>
-                            <span class="badge">Done</span>
-                        </div>
-                        <p>An interactive tool mapping logical dependencies and event behaviors across coupled scripts.</p>
-                        <div class="project-tech"><span>JavaScript</span> <span>CSS</span></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Incomplete/In-Progress Projects Section -->
-        <section id="incomplete-projects" class="section border-top">
-            <div class="section-content">
-                <h2>In-Progress Projects</h2>
-                <div class="projects-columns">
-                    <!-- Project 3 -->
-                    <div class="project-box status-pending">
-                        <div class="project-header">
-                            <h3>Project Gamma</h3>
-                            <span class="badge badge-work">In Progress</span>
-                        </div>
-                        <p>An application utilizing abstract structural shells designed for flexible inheritance extensions.</p>
-                        <div class="project-tech"><span>C#</span> <span>Architecture</span></div>
-                    </div>
-                    <!-- Project 4 -->
-                    <div class="project-box status-pending">
-                        <div class="project-header">
-                            <h3>Project Delta</h3>
-                            <span class="badge badge-work">In Progress</span>
-                        </div>
-                        <p>A unified messaging pattern implementation ensuring clean decoupling between architectural units.</p>
-                        <div class="project-tech"><span>C#</span> <span>Events</span></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Future Quotes/Testimonials Section -->
-        <section id="quotes" class="section border-top">
-            <div class="section-content">
-                <h2>What Others Say</h2>
-                <div class="quotes-container">
-                    <blockquote class="quote-card">
-                        <p>"Demonstrates an exceptional grasp of programmatic logic and structurally sound design principles."</p>
-                        <cite>— Professor / Peer Review</cite>
-                    </blockquote>
-                    <blockquote class="quote-card">
-                        <p>"Always writes clean code that focuses heavily on separation of concerns and maintainability."</p>
-                        <cite>— Project Collaborator</cite>
-                    </blockquote>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact and Socials Section -->
-        <section id="contact" class="section border-top">
-            <div class="section-content">
-                <h2>Contact & Socials</h2>
-                <p>Feel free to reach out for collaboration, questions, or code reviews.</p>
-                <div class="social-links">
-                    <a href="mailto:your.email@example.com" class="social-btn">Email Me</a>
-                    <a href="https://github.com" target="_blank" class="social-btn">GitHub</a>
-                    <a href="#" class="social-btn">LinkedIn</a>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer border-top">
-        <p>&copy; 2026 Your Name. All rights reserved.</p>
-    </footer>
-
-</body>
-</html>
+    <div class="item" data-details="Details about Project Three">
+      Project Three
+    </div>
+  </main>
+  <script src="interactions.js"></script>
+</div>

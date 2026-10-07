@@ -1,288 +1,62 @@
-/* GitHub Dark Mode Color Palette & Variables */
 :root {
-    --bg-main: #0d1117;          /* GitHub dark background */
-    --bg-navbar: #161b22;        /* Darker header color */
-    --bg-card: #21262d;          /* Box background color */
-    --border-color: #30363d;     /* Muted border element */
-    --text-primary: #c9d1d9;     /* Core readable font color */
-    --text-muted: #8b949e;       /* Secondary details color */
-    --accent: #58a6ff;           /* Link / Active blue */
-    --accent-hover: #1f6feb;     /* Deeper accent blue */
-    --success-badge: #238636;    /* Completed green */
-    --progress-badge: #9e6a00;   /* WIP amber */
+  --bg-main: #0d1117;
+  --bg-panel: #0f141b;
+  --bg-elevated: #161b22;
+
+  --text-primary: #c9d1d9;
+  --text-secondary: #8b949e;
+  --text-muted: #6e7681;
+
+  --accent-blue: #3b82f6;
 }
 
-/* Global Structural Resets */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+body {
+  background: var(--bg-main);
+  color: var(--text-primary);
+  font-family: Inter, sans-serif;
 }
 
-html {
-    scroll-behavior: smooth;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-    background-color: var(--bg-main);
-    color: var(--text-primary);
+#left-panel {
+  background: var(--bg-panel);
+  border-right: 1px solid var(--bg-elevated);
 }
 
-/* Persistent Sticky Navigation Link Bar */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    background-color: var(--bg-navbar);
-    border-bottom: 1px solid var(--border-color);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+#right-panel .item:hover {
+  color: var(--accent-blue);
 }
 
-.navbar .logo {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--text-primary);
+a {
+  color: var(--accent-blue);
 }
 
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 1.5rem;
+.layout {
+  display: flex;
+  height: 100vh;
+
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.nav-links a {
-    text-decoration: none;
-    color: var(--text-muted);
-    font-size: 0.9rem;
-    font-weight: 500;
-    transition: color 0.2s ease;
+#left-panel {
+  width: 45%;
+  padding: 3rem;
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
 }
 
-.nav-links a:hover {
-    color: var(--accent);
+#right-panel {
+  width: 55%;
+  padding: 3rem;
+  overflow-y: auto;
 }
 
-/* Full Width Structural Grid Wrapper */
-.main-container {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
+.item {
+  padding: 1rem 0;
+  cursor: pointer;
 }
 
-/* Centered content block setup inside full-width bands */
-.section {
-    width: 100%;
-    padding: 4rem 2rem;
-    display: flex;
-    justify-content: center;
+.hidden {
+  display: none;
 }
 
-.section-content {
-    width: 100%;
-    max-width: 1200px; /* Expands broadly across widescreen setups */
-    text-align: center; /* Enforces strict centering of structural headings */
-}
-
-.border-top {
-    border-top: 1px solid var(--border-color);
-}
-
-/* Typography styles */
-h1 {
-    font-size: 2.5rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-}
-
-h2 {
-    font-size: 1.75rem;
-    font-weight: 600;
-    margin-bottom: 2rem;
-    position: relative;
-}
-
-.highlight {
-    color: var(--accent);
-}
-
-.lead {
-    font-size: 1.25rem;
-    color: var(--text-muted);
-    margin-bottom: 1rem;
-}
-
-p {
-    color: var(--text-muted);
-    max-width: 750px;
-    margin: 0 auto 1.5rem auto;
-}
-
-/* Skills Layout Elements */
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-    margin-top: 1.5rem;
-}
-
-.skill-card {
-    background-color: var(--bg-navbar);
-    border: 1px solid var(--border-color);
-    padding: 1.5rem;
-    border-radius: 6px;
-    text-align: left;
-}
-
-.skill-card h3 {
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
-    color: var(--accent);
-}
-
-/* Adaptive Project Columns Configuration */
-.projects-columns {
-    display: grid;
-    /* Dynamically breaks into 2 or 3 columns based on space */
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 1.5rem;
-    width: 100%;
-}
-
-.project-box {
-    background-color: var(--bg-navbar);
-    border: 1px solid var(--border-color);
-    border-radius: 6px;
-    padding: 1.5rem;
-    text-align: left; /* Keeps inside details clean, outer alignment handles centering */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: border-color 0.2s ease;
-}
-
-.project-box:hover {
-    border-color: var(--text-muted);
-}
-
-.project-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
-}
-
-.project-header h3 {
-    font-size: 1.2rem;
-    font-weight: 600;
-}
-
-/* GitHub Status Badges */
-.badge {
-    font-size: 0.75rem;
-    padding: 0.1rem 0.5rem;
-    border-radius: 20px;
-    color: #ffffff;
-    font-weight: 500;
-    background-color: var(--success-badge);
-}
-
-.badge-work {
-    background-color: var(--progress-badge);
-}
-
-.project-tech {
-    display: flex;
-    gap: 0.5rem;
-    margin-top: 1rem;
-}
-
-.project-tech span {
-    font-size: 0.75rem;
-    color: var(--accent);
-    background-color: rgba(88, 166, 255, 0.1);
-    padding: 0.2rem 0.6rem;
-    border-radius: 12px;
-}
-
-/* Quotes/Testimonials Styling */
-.quotes-container {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    align-items: center;
-}
-
-.quote-card {
-    background-color: var(--bg-main);
-    border-left: 4px solid var(--border-color);
-    padding: 1rem 1.5rem;
-    max-width: 700px;
-    text-align: left;
-}
-
-.quote-card p {
-    font-style: italic;
-    margin-bottom: 0.5rem;
-    color: var(--text-primary);
-}
-
-.quote-card cite {
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    display: block;
-}
-
-/* Contact Social Action Elements */
-.social-links {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-    margin-top: 1.5rem;
-}
-
-.social-btn {
-    background-color: var(--bg-card);
-    border: 1px solid var(--border-color);
-    color: var(--text-primary);
-    padding: 0.5rem 1.2rem;
-    border-radius: 6px;
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 500;
-    transition: background-color 0.2s, border-color 0.2s;
-}
-
-.social-btn:hover {
-    background-color: var(--border-color);
-    border-color: var(--text-muted);
-}
-
-/* Footer Section styling */
-.footer {
-    padding: 2rem;
-    text-align: center;
-    background-color: var(--bg-navbar);
-    color: var(--text-muted);
-    font-size: 0.85rem;
-}
-
-/* Precise mobile modifications */
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        gap: 0.8rem;
-        padding: 1rem;
-    }
-    
-    .nav-links {
-        gap: 1rem;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .section {
-        padding: 3rem 1rem;
-    }
-}
