@@ -1,28 +1,53 @@
-<div class="layout">
-  <aside id="left-panel">
-    <link rel="stylesheet" href="style.css">
-    <div id="default-content">
-      <h1>Keegan</h1>
-      <p>Developer • Designer • Problem Solver</p>
-    </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio Base</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="layout">
 
-    <div id="hover-content" class="hidden">
-      <!-- This will be filled dynamically -->
-    </div>
-  </aside>
+    <!-- LEFT PANEL -->
+    <aside class="left">
+      <div class="left-inner">
+        <p class="availability">AVAILABLE FOR WORK</p>
+        <h1 class="name">Keegan Schwartz</h1>
+        <p class="tagline">
+          Student at the University of Wisconsin-Whitewater, 
+          BS in Media Arts and Game Development 
+          With an Emphasis on Technology and
+          Minor in General Business. 
+        </p> 
 
-  <main id="right-panel">
-    <div class="item" data-details="Details about Project One">
-      Project One
-    </div>
+        <nav class="categories">
+          <div class="section" data-section="about">ABOUT</div>
+          <div class="section" data-section="skills">SKILLS</div>
+          <!--<div class="section" data-section="experience">EXPERIENCE</div>-->
+          <div class="section" data-section="work">MY WORK</div>
+        </nav>
 
-    <div class="item" data-details="Details about Project Two">
-      Project Two
-    </div>
+        <div class="socials">
+          <a href="#">LinkedIn</a>
+          <a href="#">GitHub</a>
+          <a href="#">Itch.io</a>
+        </div>
 
-    <div class="item" data-details="Details about Project Three">
-      Project Three
-    </div>
-  </main>
-  <script src="interactions.js"></script>
-</div>
+        <button class="contact-btn">LET`S TALK</button>
+      </div>
+    </aside>
+
+    <!-- RIGHT PANEL -->
+    <main class="right">
+      <div id="content">
+        <h2>Welcome</h2>
+        <p>Hover or click a section on the left to explore.</p>
+      </div>
+    </main>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
