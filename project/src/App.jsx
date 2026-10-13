@@ -11,7 +11,7 @@ import {
 function About() {
   return (
     <div className="text-brand-text">
-      <h2 className="text-[2rem] font-semibold mt-0 text-brand-prussian">
+      <h2 className="text-[2rem] font-semibold mt-0 text-brand-text">
         Hi There!
       </h2>
 
@@ -36,46 +36,60 @@ function About() {
 function Skills() {
   const items = [
     {
-      name: "Figma",
-      level: "Daily Driver",
+      name: "TestSkill",
+      level: "Working Knowledge",
       icon: PaintBrushIcon,
       description:
-        "Used for wireframes, prototypes, UI systems, and collaborative design workflows.",
+        "blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah.",
     },
     {
-      name: "React",
-      level: "Advanced",
-      icon: CodeBracketIcon,
-      description:
-        "Building interactive UI components, stateful logic, and responsive layouts.",
-    },
-    {
-      name: "TypeScript",
-      level: "Proficient",
-      icon: CommandLineIcon,
-      description:
-        "Writing safer, scalable front‑end code with strong typing and interfaces.",
-    },
-    {
-      name: "CSS",
-      level: "Advanced",
-      icon: CubeTransparentIcon,
-      description:
-        "Crafting layouts, animations, and responsive styling with precision.",
-    },
-    {
-      name: "Webflow",
-      level: "Proficient",
-      icon: GlobeAltIcon,
-      description:
-        "Building clean, responsive marketing sites with CMS‑driven content.",
-    },
-    {
-      name: "Git",
+      name: "TestSkill",
       level: "Working Knowledge",
-      icon: Cog6ToothIcon,
+      icon: PaintBrushIcon,
       description:
-        "Version control, branching, merging, and collaborative development workflows.",
+        "blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah.",
+    },
+    {
+      name: "TestSkill",
+      level: "Working Knowledge",
+      icon: PaintBrushIcon,
+      description:
+        "blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah.",
+    },
+    {
+      name: "TestSkill",
+      level: "Working Knowledge",
+      icon: PaintBrushIcon,
+      description:
+        "blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah.",
+    },
+    {
+      name: "TestSkill",
+      level: "Working Knowledge",
+      icon: PaintBrushIcon,
+      description:
+        "blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah.",
+    },
+    {
+      name: "TestSkill",
+      level: "Working Knowledge",
+      icon: PaintBrushIcon,
+      description:
+        "blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah.",
+    },
+    {
+      name: "TestSkill",
+      level: "Working Knowledge",
+      icon: PaintBrushIcon,
+      description:
+        "blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah.",
+    },
+    {
+      name: "TestSkill",
+      level: "Working Knowledge",
+      icon: PaintBrushIcon,
+      description:
+        "blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah.",
     },
   ];
 
