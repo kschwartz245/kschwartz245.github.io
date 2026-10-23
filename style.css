@@ -4,18 +4,31 @@
    ========================================================================== */
 
 :root {
-  /* Colours */
-  --bg: #0b1226;
-  --bg-deep: #070c1b;
-  --surface: #131c31;
-  --surface-2: #1a2540;
+  /* Your palette */
+  --blue-900: #0c4b75;
+  --blue-700: #176192;
+  --blue-600: #0566a7;
+  --blue-500: #076caf;
+  --blue-400: #0a77c0;
+
+  /* Extra on-theme shades (derived from the palette) */
+  --blue-300: #4fb0ea;  /* lighter tint for text/hover on dark backgrounds */
+  --blue-100: #d6ebf9;  /* very pale tint for gradients/soft text */
+  --bg: #061420;
+  --bg-deep: #030b13;
+  --surface: #0a2238;
+  --surface-2: #0f3350;
+
+  /* Semantic colours */
   --border: rgba(255, 255, 255, 0.08);
-  --text: #e8eefc;
-  --text-muted: #9aa7c7;
-  --accent: #7ed321;
-  --accent-2: #00a06a;
-  --accent-gradient: linear-gradient(90deg, var(--accent), var(--accent-2));
-  --skills-bg: #101a33;
+  --text: #eef6fc;
+  --text-muted: #9db8cc;
+  --accent: var(--blue-400);
+  --accent-light: var(--blue-300);
+  --accent-2: var(--blue-600);
+  --accent-gradient: linear-gradient(90deg, var(--blue-400), var(--blue-700));
+  --skills-bg: var(--surface);
+  --danger: #ff6b6b;
 
   /* Type */
   --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -75,7 +88,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 }
 
 :focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--accent-light);
   outline-offset: 3px;
 }
 
@@ -85,7 +98,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   top: 0;
   z-index: 100;
   height: var(--header-h);
-  background: rgba(11, 18, 38, 0.85);
+  background: rgba(6, 20, 32, 0.85);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid transparent;
   transition: border-color 0.3s, box-shadow 0.3s;
@@ -114,10 +127,10 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 .logo {
   font-weight: 800;
   font-size: 1.4rem;
-  color: var(--accent);
+  color: var(--accent-light);
 }
 
-.logo span { color: var(--accent-2); }
+.logo span { color: var(--accent); }
 
 .social-links {
   display: flex;
@@ -126,7 +139,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   font-size: 1.1rem;
 }
 
-.social-links a:hover { color: var(--accent); }
+.social-links a:hover { color: var(--accent-light); }
 
 .nav-links {
   display: flex;
@@ -142,7 +155,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 }
 
 .nav-links a:hover,
-.nav-links a.active { color: var(--accent); }
+.nav-links a.active { color: var(--accent-light); }
 
 .nav-toggle {
   display: none;
@@ -155,7 +168,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   text-align: center;
   padding: 6rem 1rem 5rem;
   background:
-    radial-gradient(ellipse at 50% 0%, rgba(126, 211, 33, 0.08), transparent 60%),
+    radial-gradient(ellipse at 50% 0%, rgba(10, 119, 192, 0.22), transparent 60%),
     var(--bg);
 }
 
@@ -168,7 +181,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   border-radius: 999px;
   font-size: 0.8rem;
   font-weight: 600;
-  color: #ffb84d;
+  color: var(--blue-300);
   background: rgba(255, 255, 255, 0.03);
   margin-bottom: 2rem;
 }
@@ -177,14 +190,14 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--accent);
+  background: var(--accent-light);
   animation: pulse 2s infinite;
 }
 
 @keyframes pulse {
-  0%   { box-shadow: 0 0 0 0 rgba(126, 211, 33, 0.6); }
-  70%  { box-shadow: 0 0 0 8px rgba(126, 211, 33, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(126, 211, 33, 0); }
+  0%   { box-shadow: 0 0 0 0 rgba(79, 176, 234, 0.6); }
+  70%  { box-shadow: 0 0 0 8px rgba(79, 176, 234, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(79, 176, 234, 0); }
 }
 
 .hero h1 {
@@ -196,7 +209,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 }
 
 .gradient-text {
-  background: linear-gradient(90deg, #d9f7c8, var(--accent) 50%, var(--accent-2));
+  background: linear-gradient(90deg, var(--blue-100), var(--blue-300) 50%, var(--blue-400));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -216,6 +229,33 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   gap: 1rem;
 }
 
+/* ---------- About ---------- */
+.about { background: var(--bg); }
+
+.about-content {
+  max-width: 720px;
+  margin-inline: auto;
+}
+
+.about-content p {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.about-content p + p { margin-top: 1.25rem; }
+
+.about-content strong { color: var(--text); font-weight: 600; }
+
+.about-content a {
+  color: var(--accent-light);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.about-content a:hover { border-bottom-color: var(--accent-light); }
+
 /* ---------- Buttons ---------- */
 .btn {
   display: inline-block;
@@ -230,11 +270,14 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 
 .btn-primary {
   background: var(--accent);
-  color: #0b1226;
-  box-shadow: 0 0 24px rgba(126, 211, 33, 0.35);
+  color: #fff;
+  box-shadow: 0 0 24px rgba(10, 119, 192, 0.45);
 }
 
-.btn-primary:hover { box-shadow: 0 0 34px rgba(126, 211, 33, 0.55); }
+.btn-primary:hover {
+  background: var(--blue-500);
+  box-shadow: 0 0 34px rgba(10, 119, 192, 0.65);
+}
 
 .btn-outline {
   border: 1px solid var(--border);
@@ -263,15 +306,15 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   align-items: center;
   gap: 0.75rem;
   text-align: center;
-  color: var(--text-muted);
+  color: var(--blue-100);
   font-size: 0.95rem;
   transition: transform 0.25s, color 0.25s;
 }
 
-.skill i { font-size: 3.2rem; color: var(--text); transition: color 0.25s; }
+.skill i { font-size: 3.2rem; color: #fff; transition: color 0.25s; }
 
-.skill:hover { transform: translateY(-6px); color: var(--text); }
-.skill:hover i { color: var(--accent); }
+.skill:hover { transform: translateY(-6px); color: #fff; }
+.skill:hover i { color: var(--blue-300); }
 
 /* ---------- Projects ---------- */
 .projects-grid {
@@ -294,7 +337,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 
 .project-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(126, 211, 33, 0.4);
+  border-color: var(--blue-700);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
 }
 
@@ -308,10 +351,10 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 }
 
 .card-meta { display: flex; align-items: center; gap: 0.6rem; }
-.card-meta i.fa-star { color: #f5c542; }
+.card-meta i.fa-star { color: var(--accent-light); }
 
 .card-link { color: var(--text-muted); transition: color 0.2s; }
-.card-link:hover { color: var(--accent); }
+.card-link:hover { color: var(--accent-light); }
 
 .project-card h3 {
   font-size: 1.1rem;
@@ -339,7 +382,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   padding: 0.2rem 0.6rem;
   border-radius: 999px;
   background: var(--surface-2);
-  color: #6f86b8;
+  color: #7fb8e0;
 }
 
 /* ---------- Contact ---------- */
@@ -401,11 +444,11 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 .form-group textarea:focus {
   outline: none;
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(126, 211, 33, 0.15);
+  box-shadow: 0 0 0 3px rgba(10, 119, 192, 0.3);
 }
 
 .form-group input.invalid,
-.form-group textarea.invalid { border-color: #ff6b6b; }
+.form-group textarea.invalid { border-color: var(--danger); }
 
 .btn-submit {
   width: 100%;
@@ -426,8 +469,8 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   font-size: 0.85rem;
 }
 
-.form-status.success { color: var(--accent); }
-.form-status.error { color: #ff6b6b; }
+.form-status.success { color: var(--accent-light); }
+.form-status.error { color: var(--danger); }
 
 .connect {
   margin-top: 2rem;
@@ -458,7 +501,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
 
 .connect-icons a:hover {
   background: var(--accent);
-  color: #0b1226;
+  color: #fff;
   transform: translateY(-3px);
 }
 
@@ -468,6 +511,10 @@ button { font: inherit; cursor: pointer; border: none; background: none; color: 
   font-size: 0.8rem;
   color: var(--text-muted);
   background: var(--bg-deep);
+}
+
+.h-captcha {
+  text-align: center;
 }
 
 /* ---------- Scroll reveal (toggled by script.js) ---------- */

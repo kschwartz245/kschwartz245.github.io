@@ -3,7 +3,7 @@
 // ==========================================================================
 
 // ---- Config (edit these) --------------------------------------------------
-const CONTACT_EMAIL = "you@example.com"; // used by the mailto fallback below
+const WEB3FORMS_KEY = "c4970ce9-3839-4eec-ae05-ae8d18ab90e4"
 
 document.addEventListener("DOMContentLoaded", () => {
   initMobileNav();
@@ -105,18 +105,20 @@ function initContactForm() {
   if (!form) return;
 
   const status = form.querySelector(".form-status");
+  const button = form.querySelector(".btn-submit");
 
   const setStatus = (msg, type) => {
     status.textContent = msg;
     status.className = `form-status ${type || ""}`;
   };
 
-  form.addEventListener("submit", (e) => {
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     const name = form.elements.name;
     const email = form.elements.email;
     const message = form.elements.message;
+    const botcheck = form.elements.botcheck;
 
     // Basic validation
     let valid = true;
@@ -131,30 +133,52 @@ function initContactForm() {
       return;
     }
 
-    // OPTION A (default): open the visitor's email client with the message filled in.
-    const subject = encodeURIComponent(`Portfolio enquiry from ${name.value.trim()}`);
-    const body = encodeURIComponent(
-      `${message.value.trim()}\n\n- ${name.value.trim()} (${email.value.trim()})`
-    );
-    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
-    setStatus("Opening your email app...", "success");
+    // Honeypot tripped: pretend it worked, but don't send anything
+    if (botcheck && botcheck.checked) {
+      setStatus("Thanks! Your message has been sent.", "success");
+      form.reset();
+      return;
+    }
 
-    // OPTION B: send to a form service (Formspree, Web3Forms, your own backend).
-    // Replace the block above with something like:
-    //
-    // fetch("https://formspree.io/f/YOUR_ID", {
-    //   method: "POST",
-    //   headers: { "Content-Type": "application/json", Accept: "application/json" },
-    //   body: JSON.stringify({
-    //     name: name.value, email: email.value, message: message.value,
-    //   }),
-    // })
-    //   .then((res) => {
-    //     if (!res.ok) throw new Error("Request failed");
-    //     setStatus("Thanks! Your message has been sent.", "success");
-    //     form.reset();
-    //   })
-    //   .catch(() => setStatus("Something went wrong. Please try again.", "error"));
+    const captchaField = form.querySelector('textarea[name="h-captcha-response"]');
+    const captchaToken = captchaField ? captchaField.value : "";
+
+    if (!captchaToken) {
+      setStatus("Please complete the captcha first.", "error");
+      return;
+    }
+
+    button.disabled = true;
+    button.textContent = "Sending...";
+    setStatus("", "");
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          subject: `Portfolio enquiry from ${name.value.trim()}`,
+          name: name.value.trim(),
+          email: email.value.trim(),
+          message: message.value.trim(),
+          botcheck: false, // the real honeypot check is the one above
+          "h-captcha-response": captchaToken,
+        }),
+      });
+
+      const data = await res.json();
+      if (!res.ok || !data.success) throw new Error(data.message || "Request failed");
+
+      setStatus("Thanks! Your message has been sent.", "success");
+      form.reset();
+      if (window.hcaptcha) window.hcaptcha.reset();
+    } catch (err) {
+      setStatus("Something went wrong. Please try again, or email me directly.", "error");
+    } finally {
+      button.disabled = false;
+      button.textContent = "Send Message";
+    }
   });
 
   // Clear red border as soon as the user edits a field

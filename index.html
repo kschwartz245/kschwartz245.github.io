@@ -43,12 +43,38 @@
   <main id="top">
 
     <!-- ===== Hero ===== -->
-    <section id="about" class="hero">
-      <h1>Hi There! I'm<br><span class="gradient-text">Keegan Schwartz</span></h1>
-      <p>An ambitious Game Developer and Software Engineer</p>
+    <section id="home" class="hero">
+      <span class="badge"><span class="dot"></span> Available for work</span>
+      <h1><span class="gradient-text">Keegan Schwartz</span></h1>
+      <p>Student // Game Developer // Software Engineer</p>
       <div class="hero-buttons">
         <a href="#projects" class="btn btn-outline">View Work</a>
         <a href="#contact" class="btn btn-outline">Contact Me</a>
+      </div>
+    </section>
+
+    <!-- ===== About ===== -->
+    <section id="about" class="section about">
+      <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <p class="section-subtitle">A snippet about me and what I do.</p>
+
+        <div class="about-content reveal">
+          <p>
+            My name is Keegan Schwartz, I'm an aspiring game developer and designer from Wisconsin. 
+            I take pride in making ideas come to life through both the process of design and programming.
+            With a sharp mind for thinking on my feet and outside the box, I can keep work flowing despite 
+            hiccups that threaten to slow down development of my projects. My personal passion is to learn
+            constantly and always be improving or finding something new I haven't learned yet. 
+          </p>
+
+          <p>
+            I'm currently a student at the University of Wisconsin-Whitewater, acquiring my Bachelors 
+            in Media Arts and Game Development, with a minor in general business. I have a few 
+            small projects under my belt, and I'm always looking to expand my portfolio and learn new skills. 
+          </p>
+
+        </div>
       </div>
     </section>
 
@@ -76,27 +102,44 @@
           <h3 class="section-subtitle" style="font-size:1.3rem;color:var(--text)">GitHub Repos</h3>
           <div class="projects-grid">
 
-            <article class="project-card reveal" data-repo="username/repo-name">
+            <article class="project-card reveal" data-repo="kschwartz245/kschwartz245.github.io"> <!-- Empty Project -->
               <div class="card-top">
                 <div class="card-meta">
                   <i class="fa-brands fa-github"></i>
                   <span><i class="fa-solid fa-star"></i> <span class="stars">0</span></span>
                   <span><i class="fa-solid fa-code-fork"></i> <span class="forks">0</span></span>
                 </div>
-                <a href="#" class="card-link" aria-label="Open project"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                <a href="https://github.com/kschwartz245/kschwartz245.github.io" class="card-link" aria-label="Open project"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
               </div>
-              <h3>repo-name</h3>
-              <p>Short description of what this project does and why it exists.</p>
+              <h3>This Portfolio</h3>
+              <p>This portfolio is hosted using github pages and open to view, where you can see my attempts to wrestle with web development.</p>
               <ul class="tags">
-                <li>docker</li><li>laravel</li><li>mysql</li>
+                <li>Personal</li><li>HTML</li><li>CSS</li><li>JS</li>
               </ul>
             </article>
 
-            <!-- Duplicate the <article> above for each project -->
+            <article class="project-card reveal" data-repo="kschwartz245/COMPSCI221-Midterm-Project"> <!-- Empty Project -->
+              <div class="card-top">
+                <div class="card-meta">
+                  <i class="fa-brands fa-github"></i>
+                  <span><i class="fa-solid fa-star"></i> <span class="stars">0</span></span>
+                  <span><i class="fa-solid fa-code-fork"></i> <span class="forks">0</span></span>
+                </div>
+                <a href="https://github.com/kschwartz245/COMPSCI221-Midterm-Project" class="card-link" aria-label="Open project"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+              </div>
+              <h3>Adventure Store Project</h3>
+              <p>A small project made over the course of a few weeks with some classmates to demonstrate knowledge of C#.</p>
+              <ul class="tags">
+                <li>Academic</li><li>Github</li><li>C#</li>
+              </ul>
+            </article>
+
+            
+
           </div>
         </div>
 
-        <!-- Itch.io group: same card markup, swap the icon and drop data-repo -->
+        <!-- Itch io group -->
         <div class="projects-group">
           <h3 class="section-subtitle" style="font-size:1.3rem;color:var(--text)">Itch.io Projects</h3>
           <div class="projects-grid">
@@ -170,8 +213,11 @@
               <label for="message">Message</label>
               <textarea id="message" name="message" placeholder="Your message here..." required></textarea>
             </div>
+            <!-- Honeypot: hidden from real visitors, bots tend to tick it -->
+            <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display: none;">
             <button type="submit" class="btn-submit">Send Message</button>
             <p class="form-status" role="status" aria-live="polite"></p>
+            <div class="h-captcha" data-captcha="true"></div>
           </form>
 
           <div class="connect">
@@ -191,5 +237,6 @@
     &copy; <span id="year"></span> Keegan Schwartz. All rights reserved.
   </footer>
   <script src="script.js"></script>
+  <script src="https://web3forms.com/client/script.js" async defer></script>
 </body>
 </html>
