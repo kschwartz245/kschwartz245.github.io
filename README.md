@@ -1,7 +1,5 @@
 # Welcome to My GitHub Page!
 
-## About Me
-* **Name:** Keegan Schwartz
-* **Project:** This Web Test So Far
+ I don't know what to put here :P
 
-You can edit this file directly on GitHub to update your website content.
+
